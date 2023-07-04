@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
+    <title>Book Library</title>
+</head>
+<body>
+    <h1>My Library</h1>
+    <h2>Library Books</h2>
+    <p class="info">This is a Book Library that you can store the books that you have read on plan on reading. To add a new book just press the "New Book" button. Make sure to check the box if you are adding a book that you have already read. Click on the status section of an book to change the status of the book. Have fun while reading!</p>
+    <div class="booksectionadder">
+    <div class="buttonmover">    
+        <button class="addanewbook">New Book</button>
+    </div>
+    <div class="bookaddingsection">
+                <form id="forms">
+                    <div class="arrangebox">
+                        <label for="author" class="authorlabel">Author</label>
+                        <input type="text" name="author" id="author" placeholder="Author Name">
+                        <label for="title" class="titlelabel">Title</label>
+                        <input type="text" name="title" id="title" placeholder="Title Name">
+                        <label for="numofpages" class="numofpageslabel">Pages</label>
+                        <input type="number" name="numofpages" id="numofpages" placeholder="Number of Pages">
+                        <label for="readstatus" class="readstatuslabel">Read Status</label> 
+                        <div class="checkboxer">
+                            <input type="checkbox" name="readstatus" id="readstatus">
+                        </div>
+                        <p class="submitpara"><input type="submit" id="submit"></p>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <div class="tabler">
+        <table>
+            <tbody id="bookinfo">
+                <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Pages</th>
+                    <th>Status</th>
+                    <th class="styler">Delete</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
