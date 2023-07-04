@@ -1,25 +1,60 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+
+
+
+
+
+
+
+
+
 html{
     background-color: antiquewhite;
 }
 
 body{
-    padding: 5em;
-    padding-top: 4.5em;
+    padding: 5.5em;
+    padding-top: 6.7em;
 }
 
 h1{
     text-align: center;
     font-size: 2.5em;
-
+    font-weight:  bolder;
+    padding-bottom: 0.67em;
 }
 
 h2{
     padding-left: 3px;
     font-size: 2em;
+    font-weight:  bolder;
+    padding-bottom: 0.8em;
 }
 
 .info{
     font-size: 1.23em;
+    padding-bottom: 1em;
 }
 
 .booksectionadder{
@@ -167,6 +202,7 @@ td, th {
 th {
     background-color: rgb(235,235,235);
     font-size: 1.3em;
+    font-weight: bold;
 
 }
 
