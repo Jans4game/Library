@@ -4,7 +4,7 @@ This project mainly focuses on managing the books in library for the librarians.
 
 You can add new books and check for availability of that particular book.
 
-I have made sure to publish this project as a website. Link:
+I have made sure to publish this project as a website. Link: https://jans4game.github.io/Library/
 
 Note: This is enitrely built as a basic website as it not contains a seperate server based database!
 
