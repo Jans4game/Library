@@ -1,11 +1,11 @@
 let myLibrary = [];
 let book = [];
 
-book[0] = ["Conan Doyle", "Sherlock Holmes", "527", "Not Read"];
-book[1] = ["Evelyn Waugh","Vile Bodies","639","Not Read"];
-book[2] = ["John Grisham","A Time To Kill","775","Not Read"];
-book[3] = ["Philip.K.Dick","A Scanner Darkly","935","Not Read"];
-book[4] = ["J.K.Rowling","Harry Potter","425","Not Read"];
+book[0] = ["Conan Doyle", "Sherlock Holmes", "50", "Available"];
+book[1] = ["Evelyn Waugh","Vile Bodies","30","Out of stocks"];
+book[2] = ["John Grisham","A Time To Kill","40","Available"];
+book[3] = ["Philip.K.Dick","A Scanner Darkly","35","Available"];
+book[4] = ["J.K.Rowling","Harry Potter","50","Out of stocks"];
 
 
 myLibrary.push(book[0]);
@@ -38,18 +38,18 @@ function submitter(){
     forms.style.opacity='0';
 }
 
-function Book(title, author, numofpages, status) {
+function Book(title, author, stocks, status) {
   // the constructor...
   title = this.title;
   author = this.author;
-  numofpages = this.numofpages;
+  stocks = this.stocks;
   status = this.status;
 }
 
 const authorname = document.querySelector('#author');
 const titlename = document.querySelector('#title');
-const numofpagescount = document.querySelector('#numofpages');
-const statusinfo = document.querySelector('#readstatus');
+const rentfees = document.querySelector('#rentfee');
+const statusinfo = document.querySelector('#status');
 const bookinfos = document.querySelector('#bookinfo');
 
 submitform.addEventListener('submit', (e) => {
@@ -62,22 +62,22 @@ submitform.addEventListener('submit', (e) => {
 
 function libraryassigner(){
     if(statusinfo.checked) {
-        addBookToLibrary(titlename.value,authorname.value,numofpagescount.value,'Read');
+        addBookToLibrary(titlename.value,authorname.value,rentfees.value,'Available');
     } else {
-        addBookToLibrary(titlename.value,authorname.value,numofpagescount.value,'Not Read');
+        addBookToLibrary(titlename.value,authorname.value,rentfees.value,'Out of stocks');
     }
 }
 
-function addBookToLibrary(title,author, numofpages, status) {
+function addBookToLibrary(title,author, fees, status) {
     // do stuff here
     console.log(myLibrary);
-    ioe(title,author,numofpages,status);
+    ioe(title,author,fees,status);
     //showinpagertrue();
 }
 
-function ioe(title,author,numofpages,status){
+function ioe(title,author,fees,status){
     let i = myLibrary.length;
-    book[i] = [author,title,numofpages,status];
+    book[i] = [author,title,fees,status];
     console.log(book[i]);
     myLibrary.push(book[i]);
     addontopage(i);
@@ -98,10 +98,10 @@ function showinPage(){
         contentsss.textContent = `${jack[2]}`;
         const contentssss = document.createElement('td');
         contentssss.textContent = `${jack[3]}`;
-        if (jack[3] == 'Read'){
-            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder; font-size: 0.8em;">Read</button>`;
+        if (jack[3] == 'Available'){
+            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder; font-size: 0.8em;">Available</button>`;
         } else {
-            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder; font-size: 0.8em;">Not Read</button>`;
+            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder; font-size: 0.8em;">Out of stocks</button>`;
         }
         const contentsssss = document.createElement('td');
         contentsssss.setAttribute("class", "styler");
@@ -121,7 +121,6 @@ function showinPage(){
 }
 
 function addontopage(i) {
-    let k = myLibrary.length;
     for(let j = i;j<myLibrary.length;j++){
         jack = book[i];
         console.log(myLibrary.length);
@@ -135,10 +134,10 @@ function addontopage(i) {
         contentsss.textContent = `${jack[2]}`;
         const contentssss = document.createElement('td');
         contentssss.textContent = `${jack[3]}`;
-        if (jack[3] == 'Read'){
-            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder">Read</button>`;
+        if (jack[3] == 'Available'){
+            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder">Available</button>`;
         } else {
-            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder">Not Read</button>`;
+            contentssss.innerHTML = `<button id="toggle${i}" onclick="hello(this.id)" style="border-radius: 5px; background-color: transparent; border-color: transparent; box-sizing: content-box; cursor: pointer; font-weight:bolder">Out of stocks</button>`;
         }
         const contentsssss = document.createElement('td');
         contentsssss.setAttribute("class", "styler");
@@ -169,17 +168,17 @@ function hello(licked_id){
     let b = a.slice(6);
     console.log(b);
     const toggler = document.querySelector(`#toggle${b}`);
-        if(toggler.innerText =="Read"){
-            toggler.innerText = "Not Read";
-        } else if(toggler.innerText == "Not Read") {
-            toggler.innerText = "Read";
+        if(toggler.innerText =="Available"){
+            toggler.innerText = "Out of stocks";
+        } else if(toggler.innerText == "Out of stocks") {
+            toggler.innerText = "Available";
         }        
 }
 
 function clearForm(){
     authorname.value = "";
     titlename.value = "";
-    numofpagescount.value = '';
+    rentfees.value = '';
     statusinfo.checked = false;
 }
 
